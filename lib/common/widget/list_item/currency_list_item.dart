@@ -1,10 +1,11 @@
 import 'package:currency_app_riverpod/common/colors/app_colors.dart';
 import 'package:currency_app_riverpod/common/style/text_style.dart';
+import 'package:currency_app_riverpod/model/currency_model.dart';
 import 'package:flutter/material.dart';
 
 class CurrencyItem extends StatelessWidget {
-  const CurrencyItem({super.key,});
-
+  const CurrencyItem({required this.item,super.key,});
+  final CurrencyModel item;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,13 +18,13 @@ class CurrencyItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text("دلار امریکا",style: AppTextStyle.titleStyle.apply(color: Colors.white)),
+          Text(item.title!,style: AppTextStyle.titleStyle.apply(color: Colors.white)),
           const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("50%",style: AppTextStyle.titleStyle.apply(color: AppColors.greenColor)),
-              Text("55000",style: AppTextStyle.titleStyle),
+              Text(item.changes!,style: AppTextStyle.titleStyle.apply(color: item.status == "p"? AppColors.greenColor : Colors.red)),
+              Text(item.price!,style: AppTextStyle.titleStyle),
             ],
           )
         ],
