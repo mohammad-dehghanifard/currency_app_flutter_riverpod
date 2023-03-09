@@ -1,4 +1,4 @@
-import 'package:currency_app_riverpod/ui/home_screen.dart';
+import 'package:currency_app_riverpod/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
@@ -22,7 +22,7 @@ class MainScreen extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }
