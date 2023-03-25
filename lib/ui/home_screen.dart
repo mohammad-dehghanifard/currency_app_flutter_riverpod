@@ -11,6 +11,7 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // با استفاده از [watch] میتونیم به تغییرات [currencyNotifyProvider] گوش بدیم
     final data = ref.watch(currencyNotifyProvider);
     final size = MediaQuery.of(context).size;
     return Scaffold(
@@ -31,7 +32,8 @@ class HomeScreen extends ConsumerWidget {
                 border:
                     Border.all(color: AppColors.lightGrayColor, width: 2.5)),
             child: IconButton(
-              onPressed: () {},
+              //refresh
+              onPressed: () => ref.watch(currencyNotifyProvider),
               highlightColor: Colors.transparent,
               splashColor: Colors.transparent,
               icon: Image.asset("assets/images/refresh_icon.png"),
